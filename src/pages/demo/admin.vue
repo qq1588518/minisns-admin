@@ -1,15 +1,22 @@
+<style type="text/css">
+  .container{
+    max-width: 960px;
+  }
+</style>
 <template>
-    <admin-layout :fixed="fixed" :theme="theme" :mini-sidebar="miniSidebar" mini-sidebar-width="80px">
+    <admin-layout :head-fixed="headFixed" :boxed-layout="'container'" :side-fixed="sideFixed" :mini-sidebar="miniSidebar" mini-sidebar-width="80px">
         <div slot="header">
+            headFixed:
             <label class="m-switch">
-                <input id="test" type="checkbox" v-model="fixed" checked class="m-switch-trigger">
+                <input id="test" type="checkbox" v-model="headFixed" checked class="m-switch-trigger">
             </label>
+            sideFixed:
             <label class="m-switch">
-                <input id="test" type="checkbox" v-model="miniSidebar" checked class="m-switch-trigger">
+              <input id="test" type="checkbox" v-model="sideFixed" checked class="m-switch-trigger">
             </label>
         </div>
         <div slot="sidebar" style="padding: 10px;">
-            <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
+            <div class="m-alert m-alert-danger">1m-alert m-alert-danger</div>
             <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
             <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
             <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
@@ -18,7 +25,7 @@
             <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
             <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
         </div>
-        <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
+        <div class="m-alert m-alert-danger">1m-alert m-alert-danger</div>
         <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
         <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
         <div class="m-alert m-alert-danger">m-alert m-alert-danger</div>
@@ -41,6 +48,8 @@ export default {
   name: 'admin',
   data () {
     return {
+      headFixed: false,
+      sideFixed: true,
       fixed: true,
       miniSidebar: false,
       theme: {
