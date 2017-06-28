@@ -1,0 +1,203 @@
+// @import "../variables.less";
+@switch: m-switch;
+
+@switch-sm-width: 30px;
+@switch-sm-height: 15px;
+
+@switch-width: 48px;
+@switch-height: @switch-width/2;
+
+
+@switch-lg-width: 60px;
+@switch-lg-height: 30px;
+
+/*border 这里并不是真的border*/
+@switch-border-width: 2px;
+
+/*未选中背景，所有统一使用此颜色*/
+@switch-bgColor: #CED8E3;
+/*状态远点颜色，所有统一采用此颜色*/
+@switch-color: #fff;
+
+/*默认情景*/
+@switch-checked-bgColor: @color-info;
+
+@switch-success-checked-bgColor: @color-success;
+@switch-danger-checked-bgColor: @color-danger;
+@switch-warning-checked-bgColor: @color-warning;
+@switch-primary-checked-bgColor: @color-primary;
+
+.@{switch}{
+    display: inline-block;
+    width: @switch-width;
+    height: @switch-height;
+    border-radius: @switch-height;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.@{switch} .@{switch}-trigger{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+
+    &::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: @switch-bgColor;
+        position: absolute;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+    }
+    /*边长*/
+    @squareSide: (@switch-height)-(@switch-border-width*2);
+    &::after{
+        content: '';
+        position: absolute;
+        width: @squareSide;
+        height: @squareSide;
+        border-radius: @squareSide;
+        background-color: @switch-color;
+        top: @switch-border-width;
+        left: @switch-border-width;
+        cursor: pointer;
+        transition: left .2s ease-in-out,width .2s ease-in-out, background .2s ease-in-out;
+    }
+    &:checked::before{
+        background-color: @switch-checked-bgColor;
+    }
+    &:checked::after{
+        left: (@switch-width)-(@squareSide+@switch-border-width);
+    }
+
+    &:active::after{
+        width: @squareSide+5;
+    }
+    &:checked:active::after{
+        left: (@switch-width)-(@squareSide+@switch-border-width)-5;
+    }
+    /*禁用样式*/
+    &:disabled::before,
+    &.disabled::before {
+        background: #F3F3F3;
+        cursor: not-allowed;
+    }
+    &:checked:disabled::before,
+    &:checked.disabled::before{
+        background: #D8D8D8;
+        cursor: not-allowed;
+    }
+    &:disabled::after,
+    &.disabled::after{
+        background: #e4e4e4;
+        cursor: not-allowed;
+    }
+}
+/*theme*/
+.@{switch}{
+    &.@{switch}-success .@{switch}-trigger{
+        &:checked::before{
+            background-color: @switch-success-checked-bgColor;
+        }
+    }
+    &.@{switch}-danger .@{switch}-trigger{
+        &:checked::before{
+            background-color: @switch-danger-checked-bgColor;
+        }
+    }
+    &.@{switch}-warning .@{switch}-trigger{
+        &:checked::before{
+            background-color: @switch-warning-checked-bgColor;
+        }
+    }
+    &.@{switch}-primary .@{switch}-trigger{
+        &:checked::before{
+            background-color: @switch-primary-checked-bgColor;
+        }
+    }
+    /*反相*/
+    &.@{switch}-invert{
+        .@{switch}-trigger{
+            &:checked::before{
+                background-color: @switch-color;
+            }
+            &:checked::after{
+                background-color: @switch-checked-bgColor;
+            }
+        }
+        &.@{switch}-primary .@{switch}-trigger{
+            &:checked::after{
+                background-color: @switch-primary-checked-bgColor;
+            }
+        }
+        &.@{switch}-success .@{switch}-trigger{
+            &:checked::after{
+                background-color: @switch-success-checked-bgColor;
+            }
+        }
+        &.@{switch}-danger .@{switch}-trigger{
+            &:checked::after{
+                background-color: @switch-danger-checked-bgColor;
+            }
+        }
+        &.@{switch}-warning .@{switch}-trigger{
+            &:checked::after{
+                background-color: @switch-warning-checked-bgColor;
+            }
+        }
+    }
+    /*大小*/
+    &.@{switch}-lg{
+        width: @switch-lg-width;
+        height: @switch-lg-height;
+        border-radius: @switch-lg-height;
+        .@{switch}-trigger {
+            /*边长*/
+            @squareSide: (@switch-lg-height)-(@switch-border-width*2);
+            &::after{
+                width: @squareSide;
+                height: @squareSide;
+                border-radius: @squareSide;
+            }
+            &:checked::after{
+                left: (@switch-lg-width)-(@squareSide+@switch-border-width);
+            }
+            &:active::after{
+                width: @squareSide+8;
+            }
+            &:checked:active::after{
+                left: (@switch-lg-width)-(@squareSide+@switch-border-width)-8;
+            }
+        }
+    }
+    &.@{switch}-sm{
+        width: @switch-sm-width;
+        height: @switch-sm-height;
+        border-radius: @switch-sm-height;
+        .@{switch}-trigger {
+            /*边长*/
+            @squareSide: (@switch-sm-height)-(@switch-border-width*2);
+            &::after{
+                width: @squareSide;
+                height: @squareSide;
+                border-radius: @squareSide;
+            }
+            &:checked::after{
+                left: (@switch-sm-width)-(@squareSide+@switch-border-width);
+            }
+            &:active::after{
+                width: @squareSide+3;
+            }
+            &:checked:active::after{
+                left: (@switch-sm-width)-(@squareSide+@switch-border-width)-3;
+            }
+        }
+    }
+
+}

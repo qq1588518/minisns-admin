@@ -1,0 +1,51 @@
+
+@scrollbar: m-scrollbar;
+
+@scrollbar-size: 8px;
+
+.@{scrollbar}{
+    &::-webkit-scrollbar{
+        height: @scrollbar-size;
+        width: @scrollbar-size;
+        background: rgba(53,72,81,0.1);
+        background-clip: content-box;
+        border-radius: 30px;
+    }
+    // 滚动条的轨道
+    &::-webkit-scrollbar-track{
+        // background: #ccc;
+    }
+    // 滑块
+    &::-webkit-scrollbar-thumb{
+        background: rgba(53,72,81,0.15);
+        border-radius: 30px;
+        &:hover{
+            background: rgba(53,72,81,0.8);
+        }
+    }
+    // 滚动条的轨道的两端按钮
+    &::-webkit-scrollbar-button:no-button{
+    }
+    &::-webkit-scrollbar-corner{
+        background: inherit;
+    }
+    &&-theme-white{
+        &::-webkit-scrollbar{
+            background: rgba(255,255,255, 0.1);
+        }
+        &::-webkit-scrollbar-thumb{
+            background: rgba(255,255,255,0.15);
+            &:hover{
+                background: rgba(255,255,255,0.8);
+            }
+        }
+    }
+
+    &&-mini{
+        &::-webkit-scrollbar{
+            width: @scrollbar-size/2;
+            height: @scrollbar-size/2;
+        }
+    }
+}
+

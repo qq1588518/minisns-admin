@@ -1,0 +1,65 @@
+// @import '../vars/base';
+// @import '../vars/color';
+
+@label: m-label;
+
+@border-radius: 2px;
+
+@label-default-bgColor: #929292;
+@label-default-bgColor-light: #555555;
+
+.@{label} {
+    display: inline;
+    padding: 3px 7px;
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 2.1;
+    background: @label-default-bgColor;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: @border-radius;
+    a&{
+        text-decoration: none;
+    }
+    a&:hover{
+        background-color: @label-default-bgColor-light;
+        color: rgba(255, 255, 255, 1);
+    }
+    &&-lg{
+        padding: 4px 10px;
+        font-size: 15px;
+    }
+    &&-sm{
+        padding: 1px 5px;
+    }
+
+    & &-close-btn{
+        position: relative;
+        right: -5px;
+        padding: 0px;
+        cursor: pointer;
+        &:before{
+            content: "×";
+            font-size: 13px;
+        }
+    }
+    .make-label-theme(info, @color-info, @color-info-light);
+    .make-label-theme(primary, @color-primary, @color-primary-light);
+    .make-label-theme(success, @color-success, @color-success-light);
+    .make-label-theme(danger, @color-danger, @color-danger-light);
+    .make-label-theme(warning, @color-warning, @color-warning-light);
+}
+
+.make-label-theme(@name, @bgColor, @bgLightColor) {
+    &&-@{name}{
+        background-color: @bgColor;
+    }
+    a&&-@{name}{
+        background-color: @bgColor;
+    }
+    a&&-@{name}:hover{
+        background-color: @bgLightColor;
+    }
+}
