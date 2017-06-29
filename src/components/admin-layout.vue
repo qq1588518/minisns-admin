@@ -10,8 +10,20 @@
   .admin-header,
   .admin-sidebar,
   .admin-body,
-  .admin-footer{
+  .admin-footer,
+  .admin-sidebar-header{
     box-sizing: border-box;
+  }
+  .admin-header,
+  .admin-sidebar-header,
+  .admin-sidebar,
+  .admin-body,
+  .admin-footer{
+    -webkit-transition: width, margin, .4s cubic-bezier(0.06, 0.04, 0.2, 1);
+    -moz-transition: width, margin, .4s cubic-bezier(0.06, 0.04, 0.2, 1);
+    -o-transition: width, margin, .4s cubic-bezier(0.06, 0.04, 0.2, 1);
+    -ms-transition: width, margin, .4s cubic-bezier(0.06, 0.04, 0.2, 1);
+    transition: width, margin, .4s cubic-bezier(0.06, 0.04, 0.2, 1);
   }
   .admin-box{
     margin: 0 auto;
@@ -44,18 +56,22 @@
     min-height: 50px;
     background-color: #16AAD8;
     z-index: 100;
+    color: #DAEAEF;
   }
   .admin-sidebar-header{
+    color: #fff;
     width: 200px;
     height: 50px;
-    margin-top: -50px;
+    margin-left: -200px;
     float: left;
     background: #1199C4;
+    z-index: 300;
   }
   .admin-sidebar{
     width: 200px;
     float: left;
     background-color: #1C2B36;
+    color: #869fb1;
   }
   .admin-sidebar::before{
     content: "";
@@ -81,10 +97,10 @@
   .admin-body:after{
     clear: both;
   }
-  .footer{
+  .admin-footer{
     margin-left: 200px;
     height: 50px;
-    background: #ccc;
+    background: #F5F7FF;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -95,6 +111,14 @@
   .admin-box.admin-header-fixed .admin-header{
     position: fixed;
   }
+
+  .admin-box.admin-header-fixed.is-boxed .admin-header{
+    left: auto;
+    right: auto;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 200px;
+  } 
   .admin-box.admin-sidebar-fixed .admin-sidebar{
     position: fixed;
     bottom: 0;
@@ -105,23 +129,61 @@
     margin-top: 0;
     top: 0;
   }
+
+  .admin-box.mini-side .admin-header{
+    margin-left: 60px;
+  }
+  .admin-box.mini-side.admin-header-fixed.is-boxed .admin-header{
+    padding-left: 60px;
+  }
+  .admin-box.mini-side .admin-sidebar,
+  .admin-box.mini-side .admin-sidebar-header{
+    width: 60px;
+  }
+  .admin-box.mini-side .admin-sidebar-header{
+    margin-left: -60px;
+  }
+  .admin-box.mini-side .admin-footer,
+  .admin-box.mini-side .admin-body{
+    margin-left: 60px;
+  }
+
 </style>
 <template>
 <div class="admin-box" 
-  :class="[{'admin-header-fixed': headFixed, 'admin-sidebar-fixed': sideFixed}, boxedLayout]"
+  :class="[{
+    'admin-header-fixed': headFixed,
+    'admin-sidebar-fixed': sideFixed,
+    'is-boxed': !!boxedLayout,
+    'mini-side': miniSide
+    }, boxedLayout]"
+  :style="css['body']"
   >
   
-  <header class="admin-header" :class="[boxedLayout]">
+  <header class="admin-header" 
+    :class="[boxedLayout]"
+    :style="css['head']"
+    >
+    <div class="admin-sidebar-header"
+      :style="css['sideHead']"
+      >
+      <slot name="side-header"></slot>
+    </div>
     <slot name="header"></slot>
   </header>
-  <div class="admin-sidebar-header"></div>
-  <aside class="admin-sidebar">
+  <aside class="admin-sidebar"
+    :style="css['side']"
+    >
     <slot name="sidebar"></slot>
   </aside>
   <section class="admin-body">
     <slot></slot>
   </section>
-  <footer class="footer">footer</footer>
+  <footer class="admin-footer"
+    :style="css['foot']"
+    >
+    <slot name="footer"></slot> 
+  </footer>
 </div>
 </template>
 
@@ -141,6 +203,16 @@ export default {
     'boxed-layout': {
       type: String,
       default: ''
+    },
+    'mini-side': {
+      type: Boolean,
+      default: false
+    },
+    css: {
+      type: Object,
+      default () {
+        return {}
+      }
     }
   },
   created () {

@@ -28,6 +28,18 @@ a{
     font-weight: 100;
 }
 
+.f-left{
+    float: left;
+}
+.f-right{
+    float: right;
+}
+.text-center{
+    text-align: center;
+}
+
+
+
 /** footer **/
 .footer{
     min-height: 40px;

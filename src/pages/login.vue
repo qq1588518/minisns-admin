@@ -96,10 +96,7 @@
         </label>
     </div> -->
     <button type="submit" @click.stop="handleLogin" class="btn btn-lg btn-info btn-block submit">登录</button>
-    <p class="m-form-text-info">
-    <a href="reset.html" class="f-left">忘记密码？</a>
-    <a href="register.html" class="f-right">还没有账号？</a>
-    </p>
+    
   </form>
   </table-center-layout> 
   <template slot="footer">

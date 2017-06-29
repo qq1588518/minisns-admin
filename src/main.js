@@ -5,7 +5,10 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 
+import ElementUI from 'element-ui'
+
 Vue.use(Vuex)
+Vue.use(ElementUI)
 /**
 * 解决ie不等低端浏览器不支持babel特性
 * npm install babel-polyfill --save
@@ -14,6 +17,8 @@ import 'babel-polyfill'
 
 // 注册指令
 import './directive'
+
+import 'element-ui/lib/theme-default/index.css'
 
 import './assets/ui/export.less';
 

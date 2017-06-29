@@ -11,6 +11,10 @@ let uiView = Vue.component('ui-view', {
   template: '<div class="body" style="background: #F0F3F4"><router-view></router-view></div>'
 })
 
+
+
+import adminRouterView from '@/pages/admin'
+
 export default new Router({
   mode: 'history',
   routes: [
@@ -25,24 +29,9 @@ export default new Router({
       component: page('login')
     },
     {
-      path: '/test',
-      name: 'test',
-      component: asyncLoad('test')
-    },
-    {
-      path: '/admin2',
-      name: 'admin2',
-      component: page('demo/admin')
-    },
-    {
       path: '/admin',
       name: 'admin',
       component: page('demo/admin')
-    },
-    {
-      path: '/page1',
-      name: 'page',
-      component: page('demo/page1')
     },
     {
       path: '/utils',
@@ -52,11 +41,11 @@ export default new Router({
   ].concat(
     parentRoute('/', [
       {
-        path: 'api',
-        name: 'api',
-        component: page('demo/apitest')
+        path: 'home',
+        name: 'home',
+        component: page('home')
       }
-    ], {requiresAuth: true}, uiView),
+    ], {requiresAuth: true}, adminRouterView),
     parentRoute('/ui', uiRoutes, {}, uiView)
   ).concat(
     {
