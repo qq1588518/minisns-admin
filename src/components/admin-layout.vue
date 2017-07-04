@@ -5,7 +5,11 @@
     width: 100%;
   }
 </style>
-<style scoped>
+<style scoped lang="less">
+  @header-height: 50px;
+  @side-width: 200px;
+  @side-mini-width: 60px;
+  @footer-height: 50px;
   .admin-box,
   .admin-header,
   .admin-sidebar,
@@ -33,7 +37,7 @@
     min-height: 100%;
     background: #ECF0F5;
     z-index: 0;
-    padding-top: 50px;
+    padding-top: @header-height;
   }
   .admin-box::before{
     content: "";
@@ -47,28 +51,28 @@
   }
   
   .admin-header{
-    margin-left: 200px;
+    margin-left: @side-width;
     /*width: 100%;*/
     left: 0;
     right: 0;
     position: absolute;
     top: 0;
-    min-height: 50px;
+    min-height: @header-height;
     background-color: #16AAD8;
     z-index: 100;
     color: #DAEAEF;
   }
   .admin-sidebar-header{
     color: #fff;
-    width: 200px;
-    height: 50px;
-    margin-left: -200px;
+    width: @side-width;
+    height: @header-height;
+    margin-left: -@side-width;
     float: left;
     background: #1199C4;
     z-index: 300;
   }
   .admin-sidebar{
-    width: 200px;
+    width: @side-width;
     float: left;
     background-color: #1C2B36;
     color: #869fb1;
@@ -85,9 +89,8 @@
   }
   .admin-body{
     padding: 15px;
-    margin-left: 200px;
-    padding-bottom: 50px;
-    /*overflow: auto; 使.admin-body自沾满左边剩余位置 */
+    margin-left: @side-width;
+    padding-bottom: @header-height;
   }
   .admin-body:before,
   .admin-body:after{
@@ -98,8 +101,8 @@
     clear: both;
   }
   .admin-footer{
-    margin-left: 200px;
-    height: 50px;
+    margin-left: @side-width;
+    height: @footer-height;
     background: #F5F7FF;
     position: absolute;
     right: 0;
@@ -117,12 +120,12 @@
     right: auto;
     width: 100%;
     margin-left: 0;
-    padding-left: 200px;
+    padding-left: @side-width;
   } 
   .admin-box.admin-sidebar-fixed .admin-sidebar{
     position: fixed;
     bottom: 0;
-    top: 50px;
+    top: @header-height;
   }
   .admin-box.admin-sidebar-fixed .admin-sidebar-header{
     position: fixed;
@@ -131,22 +134,33 @@
   }
 
   .admin-box.mini-side .admin-header{
-    margin-left: 60px;
+    margin-left: @side-mini-width;
   }
   .admin-box.mini-side.admin-header-fixed.is-boxed .admin-header{
-    padding-left: 60px;
+    padding-left: @side-mini-width;
   }
   .admin-box.mini-side .admin-sidebar,
   .admin-box.mini-side .admin-sidebar-header{
-    width: 60px;
+    width: @side-mini-width;
   }
   .admin-box.mini-side .admin-sidebar-header{
-    margin-left: -60px;
+    margin-left: -@side-mini-width;
   }
   .admin-box.mini-side .admin-footer,
   .admin-box.mini-side .admin-body{
-    margin-left: 60px;
+    margin-left: @side-mini-width;
   }
+  .admin-box.hide-side .admin-sidebar,
+  .admin-box.hide-side .admin-sidebar-header{
+    width: 0;
+    overflow: hidden;
+  }
+  .admin-box.hide-side .admin-header,
+  .admin-box.hide-side .admin-footer,
+  .admin-box.hide-side .admin-body{
+  margin-left: 0;
+  }
+  
 
 </style>
 <template>
@@ -155,7 +169,8 @@
     'admin-header-fixed': headFixed,
     'admin-sidebar-fixed': sideFixed,
     'is-boxed': !!boxedLayout,
-    'mini-side': miniSide
+    'mini-side': miniSide,
+    'hide-side': hideSide
     }, boxedLayout]"
   :style="css['body']"
   >
@@ -205,6 +220,10 @@ export default {
       default: ''
     },
     'mini-side': {
+      type: Boolean,
+      default: false
+    },
+    'hideSide': {
       type: Boolean,
       default: false
     },

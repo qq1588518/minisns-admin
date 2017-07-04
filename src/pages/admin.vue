@@ -9,10 +9,15 @@
     :boxed-layout="boxClass" 
     :mini-side="miniSide" 
     :side-fixed="sideFixed"
+    :hide-side="hideSide"
     :css="getCss"
     >
         <div slot="header" style="padding: 12px;">
             <el-checkbox v-model="headFixed">headFixed</el-checkbox>
+            hideSide:
+            <label class="m-switch">
+              <input id="test" type="checkbox" v-model="hideSide" checked class="m-switch-trigger">
+            </label>
             sideFixed:
             <label class="m-switch">
               <input id="test" type="checkbox" v-model="sideFixed" checked class="m-switch-trigger">
@@ -108,6 +113,7 @@ export default {
   name: 'admin',
   data () {
     return {
+      hideSide: false,
       headFixed: false,
       sideFixed: true,
       fixed: true,

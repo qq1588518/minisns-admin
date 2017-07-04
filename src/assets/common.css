@@ -2,6 +2,7 @@
 /*
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
 */
+@import url('./fonts/line-font.css');
 
 body{
     background-color: #EDF1F5;
@@ -49,9 +50,11 @@ a{
     line-height: 40px;
     text-align: center;
     margin: 0;
-    color: #7da2ca;
+    color: #333333;
 }
 .footer .copyright .logo{
+    position: relative;
+    top: 2px;
     width: 16px;
     height: 16px;
     margin: -4px 8px 0 8px;

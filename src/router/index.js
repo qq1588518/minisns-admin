@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {asyncLoad, page, parentRoute} from '@/utils/fun'
+import {syncPage, page, parentRoute} from '@/utils/fun'
 import uiRoutes from './ui'
 
 Vue.use(Router)
@@ -19,11 +19,6 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'hello',
-      component: asyncLoad('hello')
-    },
-    {
       path: '/login',
       name: 'login',
       component: page('login')
@@ -41,9 +36,9 @@ export default new Router({
   ].concat(
     parentRoute('/', [
       {
-        path: 'home',
+        path: '/',
         name: 'home',
-        component: page('home')
+        component: syncPage('home')
       }
     ], {requiresAuth: true}, adminRouterView),
     parentRoute('/ui', uiRoutes, {}, uiView)

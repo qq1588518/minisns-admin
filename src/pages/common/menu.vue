@@ -7,9 +7,11 @@
   border-radius: 0;
   background: inherit;
 }
+.mini-side .el-menu .el-menu-item{
+  overflow: hidden;
+}
 </style>
 <template>
-<div>
 
 <el-menu default-active="2" class="app-menu" theme="dark">
 
@@ -74,8 +76,6 @@
 
 </el-menu> -->
 
-
-</div>
  </template>
 <style>
 

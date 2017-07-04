@@ -4,6 +4,8 @@ export const syncLoad = name => require('../components/' + name)
 export const asyncLoad = name => resolve => require(['../components/' + name], resolve)
 // 懒加载page
 export const page = name => resolve => require.ensure([], () => resolve(require('../pages/' + name)))
+
+export const syncPage = name => require('../pages/' + name)
 // 注册父路由
 export const parentRoute = (base, routes, meta = {}, routeView = asyncLoad('childrenView')) => {
   return {
