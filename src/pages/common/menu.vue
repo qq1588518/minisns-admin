@@ -12,7 +12,6 @@
 }
 </style>
 <template>
-
 <el-menu default-active="2" class="app-menu" theme="dark">
 
   <el-submenu index="1">
@@ -83,6 +82,9 @@
 <script>
 // import menus from './menu.json'
 export default{
-  name: 'menu'
+  name: 'menu',
+  created () {
+    // console.log('x', this.$parent.test)
+  }
 }
 </script>

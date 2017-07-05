@@ -9,6 +9,11 @@ import ElementUI from 'element-ui'
 
 Vue.use(Vuex)
 Vue.use(ElementUI)
+
+import DropdownPlugin from './components/dropdown'
+
+Vue.use(DropdownPlugin)
+
 /**
 * 解决ie不等低端浏览器不支持babel特性
 * npm install babel-polyfill --save

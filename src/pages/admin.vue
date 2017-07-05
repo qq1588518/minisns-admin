@@ -124,6 +124,11 @@ export default {
       themeIndex: '0'
     }
   },
+  methods: {
+    fun () {
+      console.log('fun')
+    }
+  },
   computed: {
     getCss () {
       return this.themes[this.themeIndex] ? this.themes[this.themeIndex] : {}
