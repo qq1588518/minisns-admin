@@ -41,9 +41,7 @@
         </div>
         <app-menu slot="sidebar"></app-menu>
         <router-view></router-view>
-        <div slot="footer">
-          footer
-        </div>
+        <app-footer slot="footer"></app-footer>
     </admin-layout>
     
 </template>
@@ -52,6 +50,7 @@
 import AdminLayout from '@/components/admin-layout'
 import AppMenu from '@/pages/common/menu'
 import AppHeader from '@/pages/common/header'
+import AppFooter from '@/pages/common/footer'
 let theme = [
   {},
   {
@@ -144,7 +143,8 @@ export default {
   components: {
     AdminLayout,
     AppMenu,
-    AppHeader
+    AppHeader,
+    AppFooter
   }
 }
 </script>

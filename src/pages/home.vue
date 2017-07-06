@@ -52,7 +52,8 @@
       <m-dropdown-item><router-link :to="{name: 'login'}">login</router-link></m-dropdown-item>
     </m-dropdown-menu>
   </m-dropdown>
-  <div style="background: #ddd; height: 150px;margin: 10px">
+  <div title="拖拽我" draggable="true">列表1</div>
+  <div style="background: #ddd; height: 150px;margin: 10px" v-dropFile="handleDropFile">
     <div style="width: 200px;height: 100%; background: #ccc"></div>
   </div>
   <div style="background: #ddd; height: 50px;margin: 10px"></div>
@@ -96,6 +97,9 @@ export default{
   methods: {
     handleCommand () {
       console.log(arguments)
+    },
+    handleDropFile (files) {
+      console.log(files)
     }
   }
 }
