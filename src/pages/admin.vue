@@ -1,5 +1,5 @@
 <style type="text/css">
-  .container{
+  .ad-app-container{
     max-width: 960px;
   }
 </style>
@@ -12,7 +12,8 @@
     :hide-side="hideSide"
     :css="getCss"
     >
-        <div slot="header" style="padding: 12px;">
+      <app-header slot="header"></app-header>
+        <!-- <div slot="header" style="padding: 12px;">
             <el-checkbox v-model="headFixed">headFixed</el-checkbox>
             hideSide:
             <label class="m-switch">
@@ -34,13 +35,11 @@
             <select v-model="themeIndex">
               <option v-for="(key, index) in themes" :value="index">theme{{index}}</option>
             </select>
-        </div>
+        </div> -->
         <div slot="side-header">
           logo
         </div>
-        <div slot="sidebar">
-            <app-menu></app-menu>
-        </div>
+        <app-menu slot="sidebar"></app-menu>
         <router-view></router-view>
         <div slot="footer">
           footer
@@ -52,6 +51,7 @@
 <script type="text/javascript">
 import AdminLayout from '@/components/admin-layout'
 import AppMenu from '@/pages/common/menu'
+import AppHeader from '@/pages/common/header'
 let theme = [
   {},
   {
@@ -73,13 +73,13 @@ let theme = [
   },
   {
     head: {
-      background: '#3C8DBC'
+      background: '#009688'
     },
     sideHead: {
-      background: '#357CA5'
+      background: '#009688'
     },
     body: {
-      background: '#ECF0F5'
+      background: '#F7FCFC'
     },
     side: {
       background: '#222D32'
@@ -89,11 +89,15 @@ let theme = [
     head: {
       background: '#FFFFFF',
       color: '#282C34'
+    },
+    sideHead: {
+      background: '#23B7E5'
     }
   },
   {
     side: {
-      background: '#DDE6E9'
+      background: '#fff',
+      color: '#282C34'
     }
   },
   {
@@ -118,7 +122,7 @@ export default {
       sideFixed: true,
       fixed: true,
       boxedLayout: false,
-      miniSide: false,
+      miniSide: true,
       miniSidebar: false,
       themes: theme,
       themeIndex: '0'
@@ -134,12 +138,13 @@ export default {
       return this.themes[this.themeIndex] ? this.themes[this.themeIndex] : {}
     },
     boxClass () {
-      return this.boxedLayout ? 'container' : ''
+      return this.boxedLayout ? 'ad-app-container' : ''
     }
   },
   components: {
     AdminLayout,
-    AppMenu
+    AppMenu,
+    AppHeader
   }
 }
 </script>

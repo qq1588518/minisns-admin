@@ -11,8 +11,10 @@ Vue.use(Vuex)
 Vue.use(ElementUI)
 
 import DropdownPlugin from './components/dropdown'
+import NavbarPlugin from './components/navbar'
 
 Vue.use(DropdownPlugin)
+Vue.use(NavbarPlugin)
 
 /**
 * 解决ie不等低端浏览器不支持babel特性
@@ -24,7 +26,7 @@ import 'babel-polyfill'
 import './directive'
 
 import 'element-ui/lib/theme-default/index.css'
-
+import './assets/font-awesome-4.7.0/css/font-awesome.min.css'
 import './assets/ui/export.less';
 
 import './assets/common.css'

@@ -9,16 +9,27 @@
 }
 .test-line{
   height: 1px;
-  background: #F6F8F8;
+  background: #dee3ea;
   margin: 5px -10px;
 }
+.caret{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+
+
 </style>
 <template>
 <div>
-  <div><span style="background: #ddd; padding: 10px;margin: 10px;">xxxx</span></div>
-  <br>
-  <m-dropdown @command="handleCommand" menu-align="right">
-    <a href="#" style="display: inline-block; padding: 10px;">dropdown</a>
+  <m-dropdown @command="handleCommand">
+    <a href="#" style="display: inline-block; padding: 10px;">dropdown <span class="caret"></span></a>
     <m-dropdown-menu>
       <div class="my-menu-header">这是扩展内容</div>
       <m-dropdown-item>用户中心</m-dropdown-item>
@@ -41,7 +52,9 @@
       <m-dropdown-item><router-link :to="{name: 'login'}">login</router-link></m-dropdown-item>
     </m-dropdown-menu>
   </m-dropdown>
-  <div style="background: #ddd; height: 50px;margin: 10px"></div>
+  <div style="background: #ddd; height: 150px;margin: 10px">
+    <div style="width: 200px;height: 100%; background: #ccc"></div>
+  </div>
   <div style="background: #ddd; height: 50px;margin: 10px"></div>
   <div style="background: #ddd; height: 50px;margin: 10px"></div>
   <h1>1</h1>
@@ -83,16 +96,7 @@ export default{
   methods: {
     handleCommand () {
       console.log(arguments)
-    },
-    test () {
-      console.log('test')
     }
-  },
-  created () {
-    console.log('created home')
-  },
-  beforeCreate () {
-    console.log('beforeCreate')
   }
 }
 </script>

@@ -20,7 +20,7 @@
     margin-left: -10px;
     margin-right: -10px;
     list-style: none;
-    line-height: 34px;
+    line-height: 28px;
     padding: 0 10px;
     color: #282C34;
     cursor: pointer;
@@ -51,7 +51,7 @@
 <template>
 <div class="m-dropdown" 
   :class="[{open: isOpen}, menuAlign]"
-  @click="handleClick"
+  @click.stop="handleClick"
   @mouseover="handleOver"
   @mouseout="handleOut"
   >
@@ -103,7 +103,18 @@ export default {
       this.clock = setTimeout(() => {
         this.isOpen = false
       }, this.waitTime || 100)
+    },
+    documentClick (e) {
+      if (this.isOpen) {
+        this.close()
+      }
     }
+  },
+  created () {
+    document.addEventListener('click', this.documentClick)
+  },
+  beforeDestroy () {
+    document.removeEventListener('click', this.documentClick)
   }
 }
 </script>

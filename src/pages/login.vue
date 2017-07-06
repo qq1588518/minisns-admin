@@ -1,8 +1,7 @@
 <style type="text/css">
   .list-item-input{
       width: 100%;
-      line-height: 2.5;
-      padding: 0 10px;
+      padding: 10px;
       border: none;
       outline: none;
       box-sizing: border-box;

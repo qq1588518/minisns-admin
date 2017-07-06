@@ -1,0 +1,300 @@
+[
+    {
+        "id": "/customer_plat/home.homeAction/index",
+        "icon": "fa fa-home",
+        "sort_num": "1",
+        "ids": "-25",
+        "data": [],
+        "value": "主页",
+        "code": "home"
+    },
+    {
+        "id": "/customer_plat/terminal.TermialInventoryAction/index",
+        "icon": "fa fa-database",
+        "sort_num": "2",
+        "ids": "-9",
+        "data": [],
+        "value": "库存状况",
+        "code": "inventory_index"
+    },
+    {
+        "id": "/customer_plat/terminal.TermialInventoryAction/terminalStatus",
+        "icon": "fa fa-building",
+        "sort_num": "3",
+        "ids": "-10",
+        "data": [],
+        "value": "终端信息",
+        "code": "terminal_index"
+    },
+    {
+        "icon": "fa fa-refresh",
+        "sort_num": "4",
+        "ids": "-26",
+        "data": [
+            {
+                "id": "/customer_plat/useRecord.UseRecordAction/index",
+                "parentId": "-26",
+                "icon": "fa fa-retweet",
+                "sort_num": "1",
+                "ids": "-11",
+                "value": "领用回收记录",
+                "code": "userecord_index"
+            },
+            {
+                "id": "/customer_plat/record.RecordAction/userStatement",
+                "parentId": "-26",
+                "icon": "fa fa-repeat",
+                "sort_num": "4",
+                "ids": "1231",
+                "value": "刀具领用报表",
+                "code": "userStatement"
+            },
+            {
+                "id": "/customer_plat/record.RecordAction/addRecoveryRecord",
+                "parentId": "-26",
+                "icon": "fa fa-repeat",
+                "sort_num": "2",
+                "ids": "522",
+                "value": "手动回收刀具",
+                "code": "manual_recovery_index"
+            },
+            {
+                "id": "",
+                "parentId": "-26",
+                "icon": "fa fa-recycle",
+                "sort_num": "3",
+                "ids": "543",
+                "value": "回收寿命报表",
+                "code": "rec_life_index"
+            }
+        ],
+        "value": "领用回收管理",
+        "code": ""
+    },
+    {
+        "id": "/customer_plat/logs.LogsAction/index",
+        "icon": "fa fa-wrench",
+        "sort_num": "5",
+        "ids": "-28",
+        "data": [
+            {
+                "id": "/customer_plat/operator.operatorManageAction/index",
+                "parentId": "-28",
+                "icon": "fa fa-user",
+                "sort_num": "1",
+                "ids": "82",
+                "value": "操作员列表",
+                "code": "all_operate"
+            },
+            {
+                "id": "/customer_plat/gourp.GourpAction/index",
+                "parentId": "-28",
+                "icon": "fa fa-users",
+                "sort_num": "2",
+                "ids": "81",
+                "value": "操作员入组",
+                "code": "operate_group"
+            },
+            {
+                "id": "/customer_plat/machine.MachineManageAction/index",
+                "parentId": "-28",
+                "icon": "fa fa-cube",
+                "sort_num": "3",
+                "ids": "529",
+                "value": "机台列表",
+                "code": "machine_index"
+            },
+            {
+                "id": "/customer_plat/machine.MachineGourpAction/index",
+                "parentId": "-28",
+                "icon": "fa fa-cubes",
+                "sort_num": "4",
+                "ids": "530",
+                "value": "机台入组",
+                "code": "machine_group_index"
+            },
+            {
+                "id": "",
+                "parentId": "-28",
+                "icon": "fa fa-user-circle",
+                "sort_num": "5",
+                "ids": "-24",
+                "value": "供应商管理",
+                "code": "supplier_cutter"
+            },
+            {
+                "id": "/customer_plat/cutter.CutterManageAction/index",
+                "parentId": "-28",
+                "icon": "fa fa-wrench",
+                "sort_num": "6",
+                "ids": "-2",
+                "value": "刀具库管理",
+                "code": "cutter_manager"
+            },
+            {
+                "id": "/customer_plat/classes.ClassesManageAction/index",
+                "parentId": "-28",
+                "icon": "fa fa-clock-o",
+                "sort_num": "7",
+                "ids": "-1",
+                "value": "班别管理",
+                "code": "class_manager"
+            }
+        ],
+        "value": "基础设置",
+        "code": ""
+    },
+    {
+        "icon": "fa fa-product-hunt",
+        "sort_num": "6",
+        "ids": "-7",
+        "data": [
+            {
+                "id": "/customer_plat/project.ProjectManageAction/index",
+                "parentId": "-7",
+                "icon": "fa fa-pinterest",
+                "sort_num": "1",
+                "ids": "516",
+                "value": "项目列表",
+                "code": "project"
+            },
+            {
+                "id": "/customer_plat/production.ProductionPlanAction/index",
+                "parentId": "-7",
+                "icon": "fa fa-pinterest-p",
+                "sort_num": "2",
+                "ids": "35",
+                "value": "生产计划",
+                "code": "production"
+            },
+            {
+                "id": "/customer_plat/production.ProductionPlanAction/planDetailIndex",
+                "parentId": "-7",
+                "icon": "fa fa-pinterest-square",
+                "sort_num": "3",
+                "ids": "39",
+                "value": "生产排配",
+                "code": "schedule_sheet"
+            },
+            {
+                "id": "/customer_plat/production.ProductionPlanAction/planActualYieldIndex",
+                "parentId": "-7",
+                "icon": "fa fa-pinterest-square",
+                "sort_num": "4",
+                "ids": "358",
+                "value": "生产产能",
+                "code": "production_capacity"
+            }
+        ],
+        "value": "项目管理",
+        "code": ""
+    },
+    {
+        "icon": "fa fa-cog",
+        "sort_num": "7",
+        "ids": "-8",
+        "data": [
+            {
+                "id": "/customer_plat/role.RoleManageAction/index",
+                "parentId": "-8",
+                "icon": "fa fa-user-circle-o",
+                "sort_num": "1",
+                "ids": "50",
+                "value": "角色管理",
+                "code": "role_manage"
+            },
+            {
+                "id": "/customer_plat/users.UsersManageAction/index",
+                "parentId": "-8",
+                "icon": "fa fa-user-o",
+                "sort_num": "2",
+                "ids": "70",
+                "value": "成员管理",
+                "code": "member"
+            },
+            {
+                "id": "/customer_plat/notify.NotifyAction/index",
+                "parentId": "-8",
+                "icon": "fa fa-bullhorn",
+                "sort_num": "3",
+                "ids": "479",
+                "value": "通知管理 ",
+                "code": "inform_config"
+            },
+            {
+                "id": "/customer_plat/customer.CustomerInfoAction/index",
+                "parentId": "-8",
+                "icon": "fa fa-minus-circle",
+                "sort_num": "4",
+                "ids": "482",
+                "value": "操作员刀具限制",
+                "code": "current_limit"
+            }
+        ],
+        "value": "系统设置",
+        "code": ""
+    },
+    {
+        "icon": "fa fa-tachometer",
+        "sort_num": "8",
+        "ids": "-12",
+        "data": [
+            {
+                "id": "/customer_plat/record.RecordAction/getCutterUseRecordIndex",
+                "parentId": "-12",
+                "icon": "fa fa-list",
+                "sort_num": "1",
+                "ids": "128",
+                "value": "刀具使用报表",
+                "code": "cutter_use_statement"
+            },
+            {
+                "id": "/customer_plat/record.RecordAction/getCutterUseProjectRecordIndex",
+                "parentId": "-12",
+                "icon": "fa fa-table",
+                "sort_num": "2",
+                "ids": "129",
+                "value": "项目刀具用量",
+                "code": "cutter_dosage"
+            },
+            {
+                "id": "/customer_plat/record.RecordAction/getPlanCompleteDetailIndex",
+                "parentId": "-12",
+                "icon": "fa fa-th",
+                "sort_num": "3",
+                "ids": "132",
+                "value": "排配产能详细",
+                "code": "plan_complete_detail"
+            },
+            {
+                "id": "/customer_plat/record.RecordAction/chartsIndex",
+                "parentId": "-12",
+                "icon": "fa fa-bar-chart",
+                "sort_num": "4",
+                "ids": "339",
+                "value": "常用图表",
+                "code": "chart"
+            },
+            {
+                "id": "/customer_plat/record.RecordAction/getCutterLifeIndex",
+                "parentId": "-12",
+                "icon": "fa fa-list-alt",
+                "sort_num": "5",
+                "ids": "474",
+                "value": "刀具寿命详情",
+                "code": "cutter_life"
+            }
+        ],
+        "value": "统计报表",
+        "code": ""
+    },
+    {
+        "id": "/customer_plat/logs.LogsAction/index",
+        "icon": "fa fa-address-book",
+        "sort_num": "9",
+        "ids": "-27",
+        "data": [],
+        "value": "日志管理",
+        "code": "logs"
+    }
+]

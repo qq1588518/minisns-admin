@@ -59,7 +59,7 @@
     top: 0;
     min-height: @header-height;
     background-color: #16AAD8;
-    z-index: 100;
+    z-index: 2000;
     color: #DAEAEF;
   }
   .admin-sidebar-header{
@@ -138,6 +138,9 @@
   }
   .admin-box.mini-side.admin-header-fixed.is-boxed .admin-header{
     padding-left: @side-mini-width;
+  }
+  .admin-box.mini-side .admin-sidebar{
+    z-index: 1000;
   }
   .admin-box.mini-side .admin-sidebar,
   .admin-box.mini-side .admin-sidebar-header{
