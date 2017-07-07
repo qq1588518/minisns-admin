@@ -8,7 +8,7 @@
 <style scoped lang="less">
   @header-height: 50px;
   @side-width: 200px;
-  @side-mini-width: 60px;
+  @side-mini-width: 50px;
   @footer-height: 50px;
   .admin-box,
   .admin-header,
@@ -60,7 +60,7 @@
     min-height: @header-height;
     background-color: #16AAD8;
     z-index: 2000;
-    color: #DAEAEF;
+    color: rgba(255,255,255,0.9);
   }
   .admin-sidebar-header{
     color: #fff;

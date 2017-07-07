@@ -1,8 +1,27 @@
+<style>
+   .m-navbar{
+    background-color: inherit !important;
+    color: inherit;
+  } 
+  .nav-logo{
+    height: 32px;
+    margin-top: 10px;
+  }
+  .m-navbar .m-nav .m-nav-item,
+  .m-navbar .m-nav .m-nav-item .m-dropdown > a,
+  .m-navbar .m-nav .m-nav-item > a{
+    color: inherit;
+  } 
+</style>
 <template>
-<div>
+
 <m-navbar>
+  <m-nav-header>
+    <a href="#" class="m-navbar-brand" slot="navbar-brand"><img src="../../assets/imgs/logo.png" class="nav-logo"></a>
+    
+  </m-nav-header>
   <m-nav>
-    <m-nav-item><a href="#">首页</a></m-nav-item>
+    <m-nav-item active><a href="#">首页</a></m-nav-item>
     <m-nav-item><a href="#">产品</a></m-nav-item>
     <m-nav-item><a href="#">关于</a></m-nav-item>
     <m-nav-item><a href="#">登录</a></m-nav-item>
@@ -27,7 +46,7 @@
     
   </m-nav>
 </m-navbar>
-</div>
+
 
 </template>
 

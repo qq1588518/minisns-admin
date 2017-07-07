@@ -15,7 +15,6 @@ Vue.directive('title', {
 **/
 Vue.directive('dropFile', {
   inserted: function (el, binding) {
-    console.log(el, binding)
     el.addEventListener('dragover', function (e) {
       e.stopPropagation()
       e.preventDefault()
@@ -25,7 +24,9 @@ Vue.directive('dropFile', {
       e.stopPropagation()
       e.preventDefault()
       if (typeof binding.value === 'function') {
-        binding.value(event.dataTransfer.files)
+        if (event.dataTransfer.files.length > 0) {
+          binding.value(event.dataTransfer.files)
+        }
       }
     }, false)
   }

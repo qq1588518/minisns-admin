@@ -13,33 +13,21 @@
     :css="getCss"
     >
       <app-header slot="header"></app-header>
-        <!-- <div slot="header" style="padding: 12px;">
-            <el-checkbox v-model="headFixed">headFixed</el-checkbox>
-            hideSide:
-            <label class="m-switch">
-              <input id="test" type="checkbox" v-model="hideSide" checked class="m-switch-trigger">
-            </label>
-            sideFixed:
-            <label class="m-switch">
-              <input id="test" type="checkbox" v-model="sideFixed" checked class="m-switch-trigger">
-            </label>
-            miniSide:
-            <label class="m-switch">
-              <input id="test" type="checkbox" v-model="miniSide" checked class="m-switch-trigger">
-            </label>
-            boxedLayout:
-            <label class="m-switch">
-              <input id="test" type="checkbox" v-model="boxedLayout" checked class="m-switch-trigger">
-            </label>
-            theme:
-            <select v-model="themeIndex">
-              <option v-for="(key, index) in themes" :value="index">theme{{index}}</option>
-            </select>
-        </div> -->
         <div slot="side-header">
           logo
         </div>
         <app-menu slot="sidebar"></app-menu>
+        <div  style="padding: 12px;">
+          <el-checkbox v-model="headFixed">headFixed</el-checkbox>
+          <el-checkbox v-model="hideSide">hideSide</el-checkbox>
+          <el-checkbox v-model="sideFixed">sideFixed</el-checkbox>
+          <el-checkbox v-model="miniSide">miniSide</el-checkbox>
+          <el-checkbox v-model="boxedLayout">boxedLayout</el-checkbox>
+          theme:
+          <select v-model="themeIndex">
+            <option v-for="(key, index) in themes" :value="index">theme-{{index}}</option>
+          </select>
+        </div>
         <router-view></router-view>
         <app-footer slot="footer"></app-footer>
     </admin-layout>
@@ -86,6 +74,19 @@ let theme = [
   },
   {
     head: {
+      background: '#fff',
+      color: '#282C34'
+    },
+    sideHead: {
+      background: '#0A897E'
+    },
+    side: {
+      background: '#009688',
+      color: '#fff'
+    }
+  },
+  {
+    head: {
       background: '#FFFFFF',
       color: '#282C34'
     },
@@ -118,7 +119,7 @@ export default {
     return {
       hideSide: false,
       headFixed: false,
-      sideFixed: true,
+      sideFixed: false,
       fixed: true,
       boxedLayout: false,
       miniSide: true,

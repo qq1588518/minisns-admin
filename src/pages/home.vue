@@ -23,12 +23,25 @@
   border-left: 4px solid transparent;
 }
 
-
+.test-btn{
+  background: #11BBA6;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 15px;
+  margin: 10px;
+  outline: none;
+  transition: box-shadow .3s ease;
+  box-shadow: 0px 0px 0px 0px rgba(0, 117, 133, 0.07);
+}
+.test-btn:active{
+  box-shadow: 0px 0px 0px 5px rgba(0, 117, 133, 0.07);
+}
 
 </style>
 <template>
 <div>
-  <m-dropdown @command="handleCommand">
+  <!-- <m-dropdown @command="handleCommand">
     <a href="#" style="display: inline-block; padding: 10px;">dropdown <span class="caret"></span></a>
     <m-dropdown-menu>
       <div class="my-menu-header">这是扩展内容</div>
@@ -40,7 +53,7 @@
       <m-dropdown-item><router-link :to="{name: 'login'}">login</router-link></m-dropdown-item>
     </m-dropdown-menu>
   </m-dropdown>
-
+  
   <m-dropdown @command="handleCommand" menu-align="right">
     <a href="#" style="display: inline-block; padding: 10px;">dropdown</a>
     <m-dropdown-menu>
@@ -51,9 +64,12 @@
       <m-dropdown-item command="exit">退出</m-dropdown-item>
       <m-dropdown-item><router-link :to="{name: 'login'}">login</router-link></m-dropdown-item>
     </m-dropdown-menu>
-  </m-dropdown>
-  <div title="拖拽我" draggable="true">列表1</div>
-  <div style="background: #ddd; height: 150px;margin: 10px" v-dropFile="handleDropFile">
+  </m-dropdown> -->
+
+  
+  <button class="test-btn">button</button>
+  <button class="btn btn-info">button</button>
+  <div style="background: #ddd; height: 150px;margin: 10px">
     <div style="width: 200px;height: 100%; background: #ccc"></div>
   </div>
   <div style="background: #ddd; height: 50px;margin: 10px"></div>
@@ -92,14 +108,93 @@
 </template>
 
 <script type="text/javascript">
+let theme = [
+  {},
+  {
+    head: {
+      background: '#7266BA'
+    },
+    sideHead: {
+      background: '#6055A2'
+    },
+    side: {
+      background: '#3A3F51'
+    },
+    body: {
+      background: '#F0F3F4'
+    },
+    foot: {
+      background: '#F6F8F8'
+    }
+  },
+  {
+    head: {
+      background: '#009688'
+    },
+    sideHead: {
+      background: '#009688'
+    },
+    body: {
+      background: '#F7FCFC'
+    },
+    side: {
+      background: '#222D32'
+    }
+  },
+  {
+    head: {
+      background: '#FFFFFF',
+      color: '#282C34'
+    },
+    sideHead: {
+      background: '#23B7E5'
+    }
+  },
+  {
+    side: {
+      background: '#fff',
+      color: '#282C34'
+    }
+  },
+  {
+    head: {
+      background: '#FFFFFF',
+      color: '#282C34'
+    },
+    side: {
+      background: '#3A3F51'
+    },
+    sideHead: {
+      background: '#3A3F51'
+    }
+  }
+]
 export default{
   name: 'home',
+  data () {
+    return {
+      hideSide: false,
+      headFixed: false,
+      sideFixed: true,
+      fixed: true,
+      boxedLayout: false,
+      miniSide: true,
+      miniSidebar: false,
+      themes: theme,
+      themeIndex: '0'
+    }
+  },
   methods: {
-    handleCommand () {
-      console.log(arguments)
+    fun () {
+      console.log('fun')
+    }
+  },
+  computed: {
+    getCss () {
+      return this.themes[this.themeIndex] ? this.themes[this.themeIndex] : {}
     },
-    handleDropFile (files) {
-      console.log(files)
+    boxClass () {
+      return this.boxedLayout ? 'ad-app-container' : ''
     }
   }
 }
