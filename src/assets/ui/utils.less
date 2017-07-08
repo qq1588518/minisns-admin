@@ -46,3 +46,33 @@
   white-space: nowrap;
 }
 
+/**
+* animation
+* e.g keyframes(effect-test, all, {css})
+*/
+.keyframes (@name, @prefix, @content) when (@prefix = def) {
+  @keyframes @name {
+    @content();
+  }
+}
+.keyframes (@name, @prefix, @content) when (@prefix = moz) {
+  @-moz-keyframes @name {
+    @content();
+  }
+}
+.keyframes (@name, @prefix, @content) when (@prefix = o) {
+  @-o-keyframes @name {
+    @content();
+  }
+}
+.keyframes (@name, @prefix, @content) when (@prefix = webkit) {
+  @-webkit-keyframes  @name{
+    @content();
+  }
+}
+.keyframes (@name, @prefix, @content) when (@prefix = all) {
+  .keyframes(@name, moz, @content);
+  .keyframes(@name, o, @content);
+  .keyframes(@name, webkit, @content);
+  .keyframes(@name, def, @content);
+}
