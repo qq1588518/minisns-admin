@@ -24,6 +24,7 @@
 }
 
 .test-btn{
+  cursor: pointer;
   background: #11BBA6;
   color: #fff;
   border: none;
@@ -31,13 +32,44 @@
   padding: 10px 15px;
   margin: 10px;
   outline: none;
-  transition: box-shadow .3s ease;
-  box-shadow: 0px 0px 0px 0px rgba(0, 117, 133, 0.07);
-}
-.test-btn:active{
-  box-shadow: 0px 0px 0px 5px rgba(0, 117, 133, 0.07);
+  position: relative;
 }
 
+ 
+ .test-btn.active{
+  box-shadow: 0px 0px 0px 0px rgba(0, 117, 133, 0.4);
+  animation:btn-active-effect .4s ease;
+}  
+
+/*.test-btn.active:after{
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+  border-radius: inherit;
+  border: 0 solid #108ee9;
+  opacity: .4;
+  -webkit-animation: buttonEffect .4s;
+  animation: buttonEffect .4s;
+  display: block;
+}
+@-webkit-keyframes buttonEffect{
+  to{
+    opacity:0;
+    top:-6px;
+    left:-6px;
+    bottom:-6px;
+    right:-6px;
+    border-width:6px
+  }
+}*/
+@keyframes btn-active-effect{
+  to{
+    box-shadow: 0px 0px 0px 7px rgba(0, 117, 133, 0.02);
+  }
+}
 </style>
 <template>
 <div>
@@ -67,7 +99,7 @@
   </m-dropdown> -->
 
   
-  <button class="test-btn">button</button>
+  <button class="test-btn" :class="{'active': isActive}" @click="handleTest">button</button>
   <button class="btn btn-info">button</button>
   <div style="background: #ddd; height: 150px;margin: 10px">
     <div style="width: 200px;height: 100%; background: #ccc"></div>
@@ -181,12 +213,19 @@ export default{
       miniSide: true,
       miniSidebar: false,
       themes: theme,
-      themeIndex: '0'
+      themeIndex: '0',
+      isActive: false
     }
   },
   methods: {
     fun () {
       console.log('fun')
+    },
+    handleTest () {
+      this.isActive = true
+      setTimeout(() => {
+        this.isActive = false
+      }, 400)
     }
   },
   computed: {
