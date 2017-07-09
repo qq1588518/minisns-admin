@@ -3,44 +3,68 @@
     <div class="box">
         <label class="m-switch">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-success">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-danger">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-primary">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-warning">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <br><br>
         <label class="m-switch m-switch-lg">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-sm">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <br><br>
 
         <label class="m-switch">
-            <input id="test" type="radio" name="test" class="m-switch-trigger">
+            <input type="radio" name="test" class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
+        </label>
+        <label class="m-switch">
+            <input type="radio" name="test" class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
 
-        <span class="m-switch">
-            <input type="radio" name="test" class="m-switch-trigger" checked>
-        </span>
         
         <label class="m-switch">
             <input id="test" type="checkbox" disabled checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch">
             <input id="test" type="checkbox" disabled class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
 
     </div>
@@ -48,18 +72,28 @@
         <p>m-switch-invert</p>
         <label class="m-switch m-switch-invert">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-invert m-switch-success">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-invert m-switch-danger">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-invert m-switch-primary">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <label class="m-switch m-switch-invert m-switch-warning">
             <input id="test" type="checkbox" checked class="m-switch-trigger">
+            <span class="m-switch-bg"></span>
+            <span class="m-switch-inner"></span>
         </label>
         <br><br>
     </div>

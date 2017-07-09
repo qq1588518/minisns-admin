@@ -11,6 +11,14 @@
                 <button class="btn btn-warning">btn-warning</button>
             </div>
             <div class="box">
+                <button class="btn btn-rounded">default</button>
+                <button class="btn btn-info btn-rounded">btn-info</button>
+                <button class="btn btn-primary btn-rounded">btn-primary</button>
+                <button class="btn btn-success btn-rounded">btn-success</button>
+                <button class="btn btn-danger btn-rounded">btn-danger</button>
+                <button class="btn btn-warning btn-rounded">btn-warning</button>
+            </div>
+            <div class="box">
                 <button class="btn btn-type-plain">default</button>
                 <button class="btn btn-info btn-type-plain">btn-info</button>
                 <button class="btn btn-primary btn-type-plain">btn-primary</button>

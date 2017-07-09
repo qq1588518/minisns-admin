@@ -1,17 +1,23 @@
-
+// 类前缀
 @radio: m-radio;
-@radio-unchecked-color: #C5CFDC;
-@radio-checked-color: #3399FF;
-@radio-hover-color: #20A0FF;
-@radio-disabled-color: #E4E4E4;
-@radio-disabled-checked-color: #b1b9c1;
-
+// 未选中背景
+@r-ubchecked-bg-color: #C5CFDC;
+// 选中背景
+@r-checked-bg-color: #3399FF;
+// hover边框
+@r-hover-bd-color: #20A0FF;
+// 禁用边框
+@r-disabled-bd-color: #E4E4E4;
+// 禁用并且选中背景
+@r-disabled-checked-bg-color: #b1b9c1;
+// 禁用字体
+@r-disabled-text-color: #BFBFBF;
 
 .@{radio}{
     display: inline-block;
     position: relative;
     min-width: 18px;
-    margin-right: 10px;
+    margin: 10px;
     line-height: 18px;
     font-size: 14px;
     cursor: pointer;
@@ -23,7 +29,7 @@
         height: 0;
         margin-right: 17px;
         cursor: inherit;
-        &::before {
+        & ~ .@{radio}-bg{
             content: "";
             position: absolute;
             top: 0px;
@@ -32,12 +38,12 @@
             width: 18px;
             height: 18px;
             background: #fff;
-            border: solid 1px @radio-unchecked-color;
+            border: solid 1px @r-ubchecked-bg-color;
             border-radius: 18px;
             box-sizing: border-box;
             cursor: inherit;
         }
-        &::after{
+        & ~ .@{radio}-mark{
             content: "";
             display: block;
             position: absolute;
@@ -46,49 +52,65 @@
             width: 0px;
             height: 0px;
             border-radius: 12px;
-            background: @radio-checked-color;
+            background: @r-checked-bg-color;
             transition: all 0.2s ease;
             cursor: inherit;
         }
-        &:checked::after{
+        & ~ .@{radio}-text{
+            opacity: .6;
+            color: inherit;
+        }
+        
+        &:hover ~ .@{radio}-bg{
+            border-color: @r-hover-bd-color;
+        }
+        &:checked ~ .@{radio}-bg{
+            border-color: @r-checked-bg-color;
+        }
+        &:checked ~ .@{radio}-mark{
             top: 3px;
             left: 3px;
             width: 12px;
             height: 12px;
         }
-        &:hover::before{
-            border-color: @radio-hover-color;
+        &:checked ~ .@{radio}-text{
+            opacity: 1;
         }
-        &:checked::before{
-            border-color: @radio-checked-color;
-        }
-        &:disabled::before{
-            border-color: @radio-disabled-color;
+        &:disabled ~ .@{radio}-bg{
+            border-color: @r-disabled-bd-color !important;
             cursor: not-allowed;
         }
-        &:checked:disabled::before{
-            border-color: @radio-disabled-checked-color;
+        &:checked:disabled ~ .@{radio}-bg{
+            border-color: @r-disabled-checked-bg-color !important;
         }
-        &:checked:disabled::after{
-            background: @radio-disabled-checked-color;
+        &:checked:disabled ~ .@{radio}-mark{
+            background: @r-disabled-checked-bg-color !important;
             cursor: not-allowed;
         }
-        &:disabled ~ .m-radio-text{
-            color: @radio-disabled-color;
+        &:disabled ~ .@{radio}-text{
+            color: @r-disabled-text-color;
             cursor: not-allowed;
         }
     }
-    // .make-radio-theme(info, #9200cc, #9200cc);
+    .make-radio-theme(primary, #7266BA, #7266BA);
+    .make-radio-theme(success, #03B976, #24D695);
+    .make-radio-theme(danger, #D9534F, #E55552);
+    .make-radio-theme(warning, #F0AD4E, #F0AD4E);
 }
-
-.make-radio-theme(@theme, @radio-checked-color, @radio-hover-color) {
-    &&-@{theme} input[type=radio]::after{
-        background: @radio-checked-color;
+/**
+* 定义主题
+* @theme 主题后缀
+* @r-checked-bg-color 选中背景
+* @r-hover-bd-color hover边框
+**/
+.make-radio-theme(@theme, @r-checked-bg-color, @r-hover-bd-color) {
+    &&-@{theme} input[type=radio] ~ .@{radio}-mark{
+        background: @r-checked-bg-color;
     }
-    &&-@{theme} input[type=radio]:hover::before{
-        border-color: @radio-hover-color;
+    &&-@{theme} input[type=radio]:hover ~ .@{radio}-bg{
+        border-color: @r-hover-bd-color;
     }
-    &&-@{theme} input[type=radio]:checked::before{
-        border-color: @radio-checked-color;
+    &&-@{theme} input[type=radio]:checked ~ .@{radio}-bg{
+        border-color: @r-checked-bg-color;
     }
 }
