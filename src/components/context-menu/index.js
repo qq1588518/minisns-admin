@@ -8,12 +8,16 @@ ContextMenuPlugin.install = function (Vue) {
   let Mask = Vue.extend(ContextMenu)
   let div = document.createElement('div')
   let mask = new Mask({
-    el: div
+    el: div,
+    data () {
+      return {menus: []}
+    }
   })
-  console.log(mask)
+
   Vue.directive('cmenu', {
-    inserted: (el) => {
-      console.log(el)
+    inserted: (el, binding) => {
+      mask.$data.menus = binding.value
+      console.log(mask)
       el.append(mask.$el)
     }
   })

@@ -48,8 +48,8 @@
       <button class="btn btn-warning">btn-warning</button>
   </div>
 
-  <div style="background: #ddd; height: 150px;margin: 10px" v-cmenu>
-    <div style="width: 200px;height: 100%; background: #ccc"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
+  <div style="background: #ddd; height: 150px;margin: 10px" v-cmenu="menus">
+    
   </div>
   <div style="background: #ddd; height: 50px;margin: 10px"></div>
   <div style="background: #ddd; height: 50px;margin: 10px"></div>
@@ -63,7 +63,54 @@ export default{
   name: 'home',
   data () {
     return {
-      isClick: false
+      isClick: false,
+      menus: [
+        {
+          menus: [
+            {
+              text: '打开',
+              tipsText: 'Ctrl+O'
+            },
+            {
+              text: '粘贴',
+              tipsText: 'Ctrl+V',
+              tipsRight: true,
+              disabled: true
+            },
+            {
+              icon: 'fa fa-info-circle',
+              text: '信息'
+            }
+          ]
+        },
+        {
+          menus: [
+            {
+              text: '测试0',
+              submenu: [
+                {
+                  menus: [
+                    {
+                      text: '子菜单1'
+                    },
+                    {
+                      text: '子菜单2',
+                      disabled: true
+                    },
+                    {
+                      text: '子菜单3'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              text: '测试1',
+              disabled: true
+            }
+          ]
+        }
+      ]
     }
   },
   methods: {
@@ -73,6 +120,39 @@ export default{
         this.isClick = false
       }, 400)
     }
+  },
+  created () {
+    setTimeout(() => {
+      this.menus.push({
+        menus: [
+          {
+            text: '新增菜单1',
+            tipsText: 'Ctrl+O'
+          },
+          {
+            text: '新增菜单2',
+            tipsText: 'Ctrl+V',
+            tipsRight: true,
+            submenu: [
+              {
+                menus: [
+                  {
+                    text: '子菜单1'
+                  },
+                  {
+                    text: '子菜单2',
+                    disabled: true
+                  },
+                  {
+                    text: '子菜单3'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      })
+    }, 2000)
   }
 }
 </script>
