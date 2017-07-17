@@ -12,9 +12,11 @@ Vue.use(ElementUI)
 
 import DropdownPlugin from './components/dropdown'
 import NavbarPlugin from './components/navbar'
+import ContextMenuPlugin from './components/context-menu'
 
 Vue.use(DropdownPlugin)
 Vue.use(NavbarPlugin)
+Vue.use(ContextMenuPlugin)
 
 /**
 * 解决ie不等低端浏览器不支持babel特性

@@ -48,8 +48,8 @@
       <button class="btn btn-warning">btn-warning</button>
   </div>
 
-  <div style="background: #ddd; height: 150px;margin: 10px">
-    <div style="width: 200px;height: 100%; background: #ccc"></div>
+  <div style="background: #ddd; height: 150px;margin: 10px" v-cmenu>
+    <div style="width: 200px;height: 100%; background: #ccc"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
   </div>
   <div style="background: #ddd; height: 50px;margin: 10px"></div>
   <div style="background: #ddd; height: 50px;margin: 10px"></div>
