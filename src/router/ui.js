@@ -27,6 +27,11 @@ export default [
     component: page('ui/form/checkbox')
   },
   {
+    path: 'form/input',
+    name: 'input',
+    component: page('ui/form/input')
+  },
+  {
     path: 'grid',
     name: 'grid',
     component: page('ui/grid')

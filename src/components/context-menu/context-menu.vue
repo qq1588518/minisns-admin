@@ -2,7 +2,7 @@
   .app-context-menu{
     background: #fff;
     box-shadow: 0 1px 10px rgba(0,0,0,.29);
-    position: absolute;
+    position: fixed;
     z-index: 10000;
     &.right .context-menu{
       & .context-menu-item.submenu .context-menu{
@@ -27,8 +27,11 @@
       min-width: 120px;
       color: #565656;
       cursor: pointer;
+      line-height: 1.5;
       & .menu-icon{
         margin-right: 5px;
+        min-width: 13px;
+        display: inline-block;
       }
       & .menu-tips-text{
         color: #c5c5c5;
@@ -54,6 +57,7 @@
           left: 100%;
           top: 0;
           display: none;
+          cursor: default;
         }
         &::after{
           content: "";
@@ -107,26 +111,22 @@
   </ul>
 </div> -->
 <div class="app-context-menu"
-  :class="{right: right}"
+  :class="{right: nearRight}"
+  :style="{left: left, top: top}"
+  v-show="isShow"
   >
   <ul class="context-menu" 
-    v-for="menu in menus"
+    v-for="menu in contextMenu.menus"
     >
-    <!-- <li class="context-menu-item submenu">
-      <span class="menu-text">{{menus}}</span>
-      <ul class="context-menu">
-        <li class="context-menu-item"><span class="menu-text">png</span></li>
-        <li class="context-menu-item"><span class="menu-text">jpg</span></li>
-      </ul>
-    </li> -->
     <template 
       v-for="item in menu.menus"
       >
       <li class="context-menu-item"
         :class="{disabled: item.disabled, submenu: typeof item.submenu === 'object'}"
+        @click.stop="handleCommand(item.command)"
         >
         <i aria-hidden="true" class="menu-icon" 
-          v-if="item.icon"
+          v-if="hasIcon"
           :class="[item.icon]"
           ></i>
         <span class="menu-text">{{item.text}}</span>
@@ -136,12 +136,18 @@
           >{{item.tipsText}}</span>
         <ul class="context-menu"
           v-if="typeof item.submenu === 'object'"
+          @click.stop=""
           v-for="submenus in item.submenu"
           >
           <li class="context-menu-item"
             v-for="subitem in submenus.menus"
             :class="{disabled: subitem.disabled}"
+            @click.stop="handleCommand(subitem.command)"
             >
+            <i aria-hidden="true" class="menu-icon" 
+              v-if="hasIcon"
+              :class="[subitem.icon]"
+              ></i>
             <span class="menu-text">{{subitem.text}}</span>
             <span class="menu-tips-text" 
               v-if="subitem.tipsText"
@@ -159,11 +165,32 @@ export default {
   name: 'context-menu',
   data () {
     return {
-      right: false
+      left: 0,
+      top: 0,
+      isShow: false,
+      nearRight: false
+    }
+  },
+  methods: {
+    setPosition (left, top) {
+      this.left = left
+      this.top = top
+      this.show()
+    },
+    show () {
+      this.isShow = true
+    },
+    hide () {
+      this.isShow = false
+    },
+    handleCommand (cmd) {
+      // console.log(cmd)
+      this.contextMenu.commands && this.contextMenu.commands[cmd] && this.contextMenu.commands[cmd]()
+      this.hide()
     }
   },
   created () {
-    console.log(this)
+    // console.log(this)
   }
 }
 </script>

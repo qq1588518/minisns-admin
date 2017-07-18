@@ -34,11 +34,6 @@
 .app-menu .el-submenu__title:hover{
   background-color: rgba(0,0,0, 0.4);
 }
-.menu-icon{
-  margin-right: 10px;
-  font-size: 36px;
-}
-
 
 /*缩小侧边栏时样式*/
 .mini-side .app-menu .menu-text{

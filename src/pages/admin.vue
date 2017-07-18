@@ -24,7 +24,7 @@
           <el-checkbox v-model="miniSide">miniSide</el-checkbox>
           <el-checkbox v-model="boxedLayout">boxedLayout</el-checkbox>
           theme:
-          <select v-model="themeIndex">
+          <select v-model="themeIndex" class="m-input">
             <option v-for="(key, index) in themes" :value="index">theme-{{index}}</option>
           </select>
         </div>

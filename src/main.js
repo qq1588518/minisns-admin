@@ -39,7 +39,7 @@ import store from './vuex'
 router.beforeEach((to, from, next) => {
   var user = window.sessionStorage.getItem('token')
   var params = {}
-  console.log(to, user)
+  // console.log(to, user)
   var noAuthRoutes = ['login', '404']
   if (!user && noAuthRoutes.indexOf(to.name) === -1) {
     router.push({path: '/login', params: params})
