@@ -35,8 +35,13 @@ export default new Router({
     },
     {
       path: '/demo',
-      name: 'utils',
+      name: 'utils2',
       component: page('demo/demo')
+    },
+    {
+      path: '/ajax',
+      name: 'ajax',
+      component: page('demo/ajax')
     }
   ].concat(
     parentRoute('/', [
