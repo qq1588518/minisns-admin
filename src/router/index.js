@@ -42,6 +42,11 @@ export default new Router({
       path: '/ajax',
       name: 'ajax',
       component: page('demo/ajax')
+    },
+    {
+      path: '/marked',
+      name: 'marked',
+      component: page('demo/marked')
     }
   ].concat(
     parentRoute('/', [
